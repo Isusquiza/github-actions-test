@@ -1,1 +1,1 @@
-print("Hola solo")
+print("Hola solo desde otro comando")
