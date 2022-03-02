@@ -1,0 +1,34 @@
+name: Build and Deploy
+
+on: 
+  push:
+    branches: [develop2]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: 
+      name: PRODU
+    env:
+      S3_BUCKET: ${{ secrets.S3_BUCKET }}
+      AWS_ROLE_TO_ASSUME: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+      AWS_ENVIRONMENT: PROD
+
+    steps:
+     - uses: actions/checkout@v2
+     - name: Build & Zip
+       run: |
+         cd src 
+         zip -r index.zip
+         ls
+         echo "S3_BUCKET: ${{ env.S3_BUCKET }}"
+         echo "AWS ROLE: ${{ env.AWS_ROLE_TO_ASSUME }}"
+
+
+        
+    
+
+
+  
+
+
