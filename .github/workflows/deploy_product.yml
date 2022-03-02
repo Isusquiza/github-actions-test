@@ -20,7 +20,7 @@ jobs:
        run: |
          pwd 
          ls -a 
-         zip -r index.zip
+         zip -r index.zip .
          ls -a
          echo "S3_BUCKET: ${{ env.S3_BUCKET }}"
          echo "AWS ROLE: ${{ env.AWS_ROLE_TO_ASSUME }}"
