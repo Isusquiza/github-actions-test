@@ -25,6 +25,20 @@ jobs:
          echo "S3_BUCKET: ${{ env.S3_BUCKET }}"
          echo "AWS ROLE: ${{ env.AWS_ROLE_TO_ASSUME }}"
 
+     - name: Configure AWS Credentials
+       uses: aws-actions/configure-aws-credentials@v1
+       with: 
+         role-to-assume: ${{ env.AWS_ROLE_TO_ASSUME }}
+         role-duration-seconds: 2400
+         aws-region: Global
+         role-skip-session-tagging: true
+
+     - name: Push to S3 Bucket
+       run: | 
+         aws s3 cp index.zip s3://${{ env.BUCKET }}        
+
+
+
 
         
     
