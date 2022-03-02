@@ -26,6 +26,7 @@ jobs:
          ls -a
          echo "S3_BUCKET: ${{ env.S3_BUCKET }}"
          echo "AWS ROLE: ${{ env.AWS_ROLE_TO_ASSUME }}"
+         echo "Hola soy iu"
 
      - name: Configure AWS Credentials
        uses: aws-actions/configure-aws-credentials@v1
