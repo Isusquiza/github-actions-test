@@ -58,7 +58,7 @@ jobs:
           git pull 
           ls -a 
           pwd
-          #aws s3 cp . s3://${{ env.S3_BUCKET }} --recursive
+          aws s3 cp . s3://${{ env.S3_BUCKET }} --recursive
           #git add -A
           #git commit -m "Random File"
           #git push   
