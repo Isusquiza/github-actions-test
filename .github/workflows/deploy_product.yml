@@ -57,7 +57,8 @@ jobs:
           git branch --set-upstream-to=origin/main
           git pull 
           ls -a 
-          aws s3 cp ./ s3://${{ env.S3_BUCKET }} 
+          pwd
+          #aws s3 cp ./ s3://${{ env.S3_BUCKET }} 
           #git add -A
           #git commit -m "Random File"
           #git push   
