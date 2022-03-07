@@ -1,6 +1,15 @@
-name: Actions Workflow
+name: Actions Workflow Dev2
 
-on: [push]
+on: 
+  push:
+    branches:
+      - develop2
+  #schedule: 
+  #   - cron: '0/5 * * * *'
+  #   - cron: '0/6 * * * *'
+
+  pull_request:
+    types: [closed, assigned, opened, reopened]
 
 jobs: 
   run-github-actions:
