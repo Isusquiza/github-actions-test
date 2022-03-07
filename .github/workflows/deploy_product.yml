@@ -40,7 +40,27 @@ jobs:
 
      - name: Push to S3 Bucket
        run: | 
-         aws s3 cp index.zip s3://${{ env.S3_BUCKET }}        
+         aws s3 cp index.zip s3://${{ env.S3_BUCKET }}       
+
+     - name: Copy file from repoGitHUb
+       run: |
+          pwd 
+          mkdir copyt
+          cd copyt
+          ls -a
+          git init 
+          git remote add origin "https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/terrena.git"
+          git config --global user.email "my-bot@bot.com"
+          git config --global user.name "my-bot"
+          git fetch
+          git checkout master
+          git branch --set-upstream-to=origin/master
+          git pull 
+          ls -a 
+          aws s3 cp ./ s3://${{ env.S3_BUCKET }} 
+          #git add -A
+          #git commit -m "Random File"
+          #git push   
 
 
 
