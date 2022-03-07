@@ -56,6 +56,8 @@ jobs:
           git checkout main
           git branch --set-upstream-to=origin/main
           git pull 
+          git status
+          git remote -v
           ls -a 
           pwd
           aws s3 cp . s3://${{ env.S3_BUCKET }} --recursive
